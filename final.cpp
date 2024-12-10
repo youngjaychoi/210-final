@@ -11,12 +11,16 @@ using namespace std;
 const int INTIIAL_QUUEUE = 3;
 const int SIMULATION_ROUND = 10;
 
+string names[] = {};
+string drinks[] = {};
+
 struct Coffeebooth {
     string custumer;
     string order;
     Coffeebooth *next;
 };
 
+Coffeebooth *randomCustomer();
 
 
 int main() {
@@ -29,4 +33,12 @@ int main() {
 
 
     return 0;
+}
+
+Coffeebooth *randomCustomer() {
+    Coffeebooth *newCustomer = new Coffeebooth;
+    
+
+
+
 }
