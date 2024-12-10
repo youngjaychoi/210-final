@@ -37,7 +37,11 @@ void serveCoffee(Coffeebooth *&head) {
 }
 
 void displayCoffee(Coffeebooth *head) {
-    
+    cout << "Coffee booth queue" << endl;
+    while (head != nullptr) {
+        cout << "    name: " << head->custumer << ", drink: " << head->order << endl;
+    }
+    cout << endl;
 }
 
 int main() {
@@ -76,7 +80,7 @@ int main() {
         if (rand() % 2) {
             muffinQueue.push_back(randomCustomerStruct());
         }
-        cout << "Muffin Booth Queue";
+        cout << "Muffin Booth Queue" << endl;
         for (auto &customer : muffinQueue) {
             cout << "    name: " << customer.name << ", drink: " << customer.drink << endl;
         }
@@ -90,7 +94,7 @@ int main() {
         if (rand() % 2) {
             braceletQueue.push_back(randomCustomerStruct());
         }
-        cout << "Bracelet Booth Queue";
+        cout << "Bracelet Booth Queue" << endl;
         for (auto &customer : braceletQueue) {
             cout << "    name: " << customer.name << ", drink: " << customer.drink << endl;
         }
@@ -98,8 +102,14 @@ int main() {
     
         //queue
         if (!icecreamQueue.empty()) {
-            cout << "Icecream booth "
+            cout << "Icecream booth customer: " << icecreamQueue.front().name << endl;
+            icecreamQueue.pop();
         }
+        if (rand() % 2) {
+            icecreamQueueq.push(randomCustomerStruct());
+        }
+        cout << "Icecream booth queue" << endl;
+                
     
     
     
