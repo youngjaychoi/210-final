@@ -29,6 +29,10 @@ Coffeebooth *randomCustomer();
 Customer randomCustomerStruct();
 void serveCoffee(Coffeebooth *&head);
 void displayCoffee(Coffeebooth *head);
+void refillCoffee(Coffeebooth *&head);
+void refillMuffin(deque<Customer> &queue);
+void refillBracelet(vector<Customer> &queue);
+void refillIcecream(queue<Customer> &queue);
 
 int main() {
     srand(time(0));
@@ -147,3 +151,10 @@ void displayCoffee(Coffeebooth *head) {
     cout << endl;
 }
 
+void refillCoffee(Coffeebooth *&head) {
+    int count = 0;
+    
+}
+void refillMuffin(deque<Customer> &queue) {}
+void refillBracelet(vector<Customer> &queue);
+void refillIcecream(queue<Customer> &queue);
