@@ -43,6 +43,12 @@ int main() {
     deque<Customer> muffinQueue;
     vector<Customer> braceletQueue;
     queue<Customer> icecreamQueue;
+
+    for (int i = 0; i < INTIIAL_QUUEUE; i++) {
+        muffinQueue.push_back(randomCustomerStruct());
+        braceletQueue.push_back(randomCustomerStruct());
+        icecreamQueue.push(randomCustomerStruct());
+    }
     
     for (int round = 1; round <= SIMULATION_ROUND; round++) {
         cout << "\nRound " << round << endl; 
@@ -102,6 +108,7 @@ int main() {
             tempQueue.pop();
         }
         cout << endl;
+        cout << "----------------------" << endl;
     }
 
     while (coffeeHead != nullptr) {
@@ -135,6 +142,7 @@ void displayCoffee(Coffeebooth *head) {
     cout << "Coffee booth queue" << endl;
     while (head != nullptr) {
         cout << "    name: " << head->custumer << ", drink: " << head->order << endl;
+        head = head->next;
     }
     cout << endl;
 }
