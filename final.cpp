@@ -26,9 +26,18 @@ struct Customer {
 };
 
 Coffeebooth *randomCustomer();
+Customer randomCustomerStruct();
 
-Customer randomCustomerStruct() {
-    return {names[rand() % 5], drinks[rand() % 5]};
+void serveCoffee(Coffeebooth *&head) {
+    if (head != nullptr) {
+        Coffeebooth *temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+void displayCoffee(Coffeebooth *head) {
+    
 }
 
 int main() {
@@ -45,6 +54,29 @@ int main() {
     vector<Customer> braceletQueue;
     queue<Customer> customQueue;
     
+    for (int round = 1; round <= SIMULATION_ROUND; round++) {
+        cout << "\nRound " << round << endl; 
+    
+        if (coffeeHead != nullptr) {
+            cout << "Customer name: " << coffeeHead->custumer << endl;
+            serveCoffee(coffeeHead);
+        }
+
+        if (rand() % 2) {
+            Coffeebooth *newCustomer = randomCustomer();
+            newCustomer->next = coffeeHead;
+            coffeeHead = newCustomer;
+        }
+
+        
+    
+    
+    
+    
+    
+    
+    }
+
 
 
 
@@ -60,3 +92,10 @@ Coffeebooth *randomCustomer() {
     newCustomer->next = nullptr;
     return newCustomer;
 }
+
+Customer randomCustomerStruct() {
+    return {names[rand() % 5], drinks[rand() % 5]};
+}
+
+
+
