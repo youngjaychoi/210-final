@@ -20,15 +20,30 @@ struct Coffeebooth {
     Coffeebooth *next;
 };
 
+struct Customer {
+    string name;
+    string drink;
+};
+
 Coffeebooth *randomCustomer();
+
+Customer randomCustomerStruct() {
+    return {names[rand() % 5], drinks[rand() % 5]};
+}
 
 int main() {
     srand(time(0));
 
     Coffeebooth *coffeeHead = nullptr;
     for (int i = 0; i < INTIIAL_QUUEUE; i++) {
-        Coffeebooth
+        Coffeebooth *customer = randomCustomer();
+        customer->next = coffeeHead;
+        coffeeHead = customer;
     }
+
+    deque<Customer> muffinQueue;
+    vector<Customer> braceletQueue;
+    queue<Customer> customQueue;
     
 
 
