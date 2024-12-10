@@ -52,13 +52,14 @@ int main() {
 
     deque<Customer> muffinQueue;
     vector<Customer> braceletQueue;
-    queue<Customer> customQueue;
+    queue<Customer> icecreamQueue;
     
     for (int round = 1; round <= SIMULATION_ROUND; round++) {
         cout << "\nRound " << round << endl; 
     
+        //coffee
         if (coffeeHead != nullptr) {
-            cout << "Customer name: " << coffeeHead->custumer << endl;
+            cout << "Coffee booth customer name: " << coffeeHead->custumer << endl;
             serveCoffee(coffeeHead);
         }
         if (rand() % 2) {
@@ -67,8 +68,9 @@ int main() {
             coffeeHead = newCustomer;
         }
 
+        //muffin
         if (!muffinQueue.empty()) {
-            cout << "Customer name: " << muffinQueue.front().name << endl;
+            cout << "Muffin booth customer name: " << muffinQueue.front().name << endl;
             muffinQueue.pop_front();
         }
         if (rand() % 2) {
@@ -80,11 +82,24 @@ int main() {
         }
         cout << endl;
 
+        //bracelet
         if (!braceletQueue.empty()) {
-            cout << ""
+            cout << "Bracelet booth customer name: " << braceletQueue.front().name << endl;
+            braceletQueue.erase(braceletQueue.begin());
         }
+        if (rand() % 2) {
+            braceletQueue.push_back(randomCustomerStruct());
+        }
+        cout << "Bracelet Booth Queue";
+        for (auto &customer : braceletQueue) {
+            cout << "    name: " << customer.name << ", drink: " << customer.drink << endl;
+        }
+        cout << endl;
     
-    
+        //queue
+        if (!icecreamQueue.empty()) {
+            cout << "Icecream booth "
+        }
     
     
     
