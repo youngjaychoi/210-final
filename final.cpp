@@ -61,14 +61,28 @@ int main() {
             cout << "Customer name: " << coffeeHead->custumer << endl;
             serveCoffee(coffeeHead);
         }
-
         if (rand() % 2) {
             Coffeebooth *newCustomer = randomCustomer();
             newCustomer->next = coffeeHead;
             coffeeHead = newCustomer;
         }
 
-        
+        if (!muffinQueue.empty()) {
+            cout << "Customer name: " << muffinQueue.front().name << endl;
+            muffinQueue.pop_front();
+        }
+        if (rand() % 2) {
+            muffinQueue.push_back(randomCustomerStruct());
+        }
+        cout << "Muffin Booth Queue";
+        for (auto &customer : muffinQueue) {
+            cout << "    name: " << customer.name << ", drink: " << customer.drink << endl;
+        }
+        cout << endl;
+
+        if (!braceletQueue.empty()) {
+            cout << ""
+        }
     
     
     
