@@ -27,22 +27,8 @@ struct Customer {
 
 Coffeebooth *randomCustomer();
 Customer randomCustomerStruct();
-
-void serveCoffee(Coffeebooth *&head) {
-    if (head != nullptr) {
-        Coffeebooth *temp = head;
-        head = head->next;
-        delete temp;
-    }
-}
-
-void displayCoffee(Coffeebooth *head) {
-    cout << "Coffee booth queue" << endl;
-    while (head != nullptr) {
-        cout << "    name: " << head->custumer << ", drink: " << head->order << endl;
-    }
-    cout << endl;
-}
+void serveCoffee(Coffeebooth *&head);
+void displayCoffee(Coffeebooth *head);
 
 int main() {
     srand(time(0));
@@ -71,6 +57,7 @@ int main() {
             newCustomer->next = coffeeHead;
             coffeeHead = newCustomer;
         }
+        displayCoffee(coffeeHead);
 
         //muffin
         if (!muffinQueue.empty()) {
@@ -106,20 +93,20 @@ int main() {
             icecreamQueue.pop();
         }
         if (rand() % 2) {
-            icecreamQueueq.push(randomCustomerStruct());
+            icecreamQueue.push(randomCustomerStruct());
         }
         cout << "Icecream booth queue" << endl;
-                
-    
-    
-    
-    
+        queue<Customer> tempQueue = icecreamQueue;
+        while (!tempQueue.empty()) {
+            cout << "    name: " << tempQueue.front().name << ", drink: " << tempQueue.front().drink << endl;
+            tempQueue.pop();
+        }
+        cout << endl;
     }
 
-
-
-
-
+    while (coffeeHead != nullptr) {
+        serveCoffee(coffeeHead);
+    }
 
     return 0;
 }
@@ -136,5 +123,19 @@ Customer randomCustomerStruct() {
     return {names[rand() % 5], drinks[rand() % 5]};
 }
 
+void serveCoffee(Coffeebooth *&head) {
+    if (head != nullptr) {
+        Coffeebooth *temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
 
+void displayCoffee(Coffeebooth *head) {
+    cout << "Coffee booth queue" << endl;
+    while (head != nullptr) {
+        cout << "    name: " << head->custumer << ", drink: " << head->order << endl;
+    }
+    cout << endl;
+}
 
